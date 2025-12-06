@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxfiylik siyosati - NanoCam</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8FAFC;
+            color: #212121;
+            line-height: 1.8;
+        }
+        .header {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E5077 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .header p {
+            opacity: 0.8;
+            font-size: 14px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .section h2 {
+            color: #1E3A5F;
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section h2::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #4CAF50;
+            border-radius: 2px;
+        }
+        .section p, .section li {
+            color: #555;
+            margin-bottom: 12px;
+        }
+        .section ul {
+            padding-left: 24px;
+        }
+        .section ul li {
+            margin-bottom: 8px;
+        }
+        .highlight {
+            background: #E8F5E9;
+            border-left: 4px solid #4CAF50;
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 16px 0;
+        }
+        .contact-box {
+            background: linear-gradient(135deg, #1E3A5F 0%, #2E5077 100%);
+            color: white;
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .contact-box a {
+            color: #81C784;
+            text-decoration: none;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: #757575;
+            font-size: 14px;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #1E3A5F;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Maxfiylik siyosati</h1>
+        <p>Oxirgi yangilanish: 2025-yil, Yanvar</p>
+    </div>
+    
+    <div class="container">
+        <a href="/" class="back-link">← Bosh sahifaga qaytish</a>
+        
+        <div class="section">
+            <h2>Kirish</h2>
+            <p>NanoCam ilovasi ("biz", "bizning" yoki "ilova") foydalanuvchilarning maxfiyligini hurmat qiladi. Ushbu Maxfiylik siyosati sizning shaxsiy ma'lumotlaringiz qanday yig'ilishi, ishlatilishi va himoya qilinishini tushuntiradi.</p>
+            <p>Ilovamizdan foydalanish orqali siz ushbu siyosat shartlariga rozilik bildirasiz.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Biz yig'adigan ma'lumotlar</h2>
+            <p>Ilovamiz quyidagi ma'lumotlarni yig'ishi mumkin:</p>
+            <ul>
+                <li><strong>Shaxsiy ma'lumotlar:</strong> Ism, telefon raqami, manzil (buyurtma berish uchun)</li>
+                <li><strong>Hisob ma'lumotlari:</strong> Email manzil (Google orqali kirish uchun)</li>
+                <li><strong>Buyurtma ma'lumotlari:</strong> Buyurtma tarixi, tanlangan mahsulotlar</li>
+            </ul>
+            <div class="highlight">
+                <strong>Muhim:</strong> Biz bank karta ma'lumotlarini yig'maymiz yoki saqlamaymiz. Barcha to'lovlar naqd pul orqali yetkazib berishda amalga oshiriladi.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Ma'lumotlardan foydalanish</h2>
+            <p>Yig'ilgan ma'lumotlar quyidagi maqsadlarda ishlatiladi:</p>
+            <ul>
+                <li>Buyurtmalarni qayta ishlash va yetkazib berish</li>
+                <li>Mijozlar bilan bog'lanish</li>
+                <li>Ilova funksiyalarini yaxshilash</li>
+                <li>Mijozlarni qo'llab-quvvatlash xizmatini ko'rsatish</li>
+                <li>Yangi mahsulotlar va chegirmalar haqida xabar berish (rozilik bilan)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Ma'lumotlarni saqlash</h2>
+            <p>Sizning ma'lumotlaringiz xavfsiz serverlarda saqlanadi:</p>
+            <ul>
+                <li><strong>Firebase (Google):</strong> Foydalanuvchi autentifikatsiyasi va ma'lumotlar bazasi</li>
+                <li><strong>Cloudinary:</strong> Mahsulot rasmlari</li>
+            </ul>
+            <p>Biz ma'lumotlaringizni faqat zarur bo'lgan davr mobaynida saqlaymiz va qonuniy talablarga muvofiq himoya qilamiz.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Ma'lumotlarni ulashish</h2>
+            <p>Biz sizning shaxsiy ma'lumotlaringizni uchinchi shaxslarga sotmaymiz yoki ijaraga bermaymiz.</p>
+            <p>Ma'lumotlar faqat quyidagi hollarda ulashilishi mumkin:</p>
+            <ul>
+                <li>Buyurtmani yetkazib berish uchun kuryer xizmatiga (faqat manzil va telefon)</li>
+                <li>Qonuniy talablar asosida (sud qarori yoki davlat organlari so'rovi)</li>
+                <li>Sizning aniq roziligingiz bilan</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Ma'lumotlar xavfsizligi</h2>
+            <p>Biz sizning ma'lumotlaringizni himoya qilish uchun quyidagi choralarni ko'ramiz:</p>
+            <ul>
+                <li>SSL/TLS shifrlash (HTTPS)</li>
+                <li>Firebase xavfsizlik qoidalari</li>
+                <li>Faqat vakolatli xodimlar uchun kirish</li>
+                <li>Muntazam xavfsizlik tekshiruvlari</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>Sizning huquqlaringiz</h2>
+            <p>Siz quyidagi huquqlarga egasiz:</p>
+            <ul>
+                <li><strong>Kirish:</strong> O'zingiz haqingizdagi saqlangan ma'lumotlarni ko'rish</li>
+                <li><strong>Tuzatish:</strong> Noto'g'ri ma'lumotlarni tuzatishni so'rash</li>
+                <li><strong>O'chirish:</strong> Hisobingiz va ma'lumotlaringizni o'chirishni so'rash</li>
+                <li><strong>Cheklash:</strong> Ma'lumotlarni qayta ishlashni cheklashni so'rash</li>
+            </ul>
+            <p>Bu huquqlardan foydalanish uchun biz bilan bog'laning.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Bolalar maxfiyligi</h2>
+            <p>Ilovamiz 13 yoshdan kichik bolalar uchun mo'ljallanmagan. Biz bila turib 13 yoshdan kichik bolalardan shaxsiy ma'lumotlarni yig'maymiz. Agar siz ota-ona yoki vasiy bo'lsangiz va bolangiz bizga shaxsiy ma'lumotlarni taqdim etganligini bilsangiz, biz bilan bog'laning.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Siyosatdagi o'zgarishlar</h2>
+            <p>Biz ushbu Maxfiylik siyosatini vaqti-vaqti bilan yangilashimiz mumkin. O'zgarishlar ilovada va ushbu sahifada e'lon qilinadi. Muhim o'zgarishlar haqida sizga xabar beramiz.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Bog'lanish</h2>
+            <p>Maxfiylik siyosati bo'yicha savollaringiz bo'lsa, biz bilan bog'laning:</p>
+            <div class="contact-box">
+                <p><strong>NanoCam</strong></p>
+                <p>📧 Email: <a href="mailto:akromxoja329@gmail.com">akromxoja329@gmail.com</a></p>
+                <p>📱 Telefon: <a href="tel:+998935195099">+998 93 519 50 99</a></p>
+                <p>📍 Manzil: Toshkent, O'zbekiston</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2025 NanoCam. Barcha huquqlar himoyalangan.</p>
+    </div>
+</body>
+</html>
