@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NanoCam - Toshkentda kameralar va tarmoq qurilmalari do'koni. Dahua, Hikvision, MikroTik mahsulotlari. Bepul yetkazib berish.">
+    <meta name="keywords" content="kamera, IP kamera, NVR, DVR, Hikvision, Dahua, MikroTik, Toshkent, xavfsizlik kamerasi">
+    <meta name="author" content="NanoCam">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="NanoCam - Xavfsizlik Yechimlari">
+    <meta property="og:description" content="Kameralar va tarmoq qurilmalari do'koni. Eng sifatli mahsulotlar eng qulay narxlarda!">
+    <meta property="og:image" content="https://nanocam.uz/images/og-image.png">
+    <meta property="og:url" content="https://nanocam.uz">
+    <meta property="og:type" content="website">
+    
+    <title>NanoCam - Xavfsizlik Yechimlari | Kameralar va Tarmoq Qurilmalari</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1E3A5F;
+            --primary-light: #2E5077;
+            --primary-dark: #152B47;
+            --secondary: #0d47a1;
+            --accent: #4CAF50;
+            --accent-light: #81C784;
+            --background: #F8FAFC;
+            --text-primary: #212121;
+            --text-secondary: #757575;
+            --white: #FFFFFF;
+            --gray-100: #F5F5F5;
+            --gray-200: #EEEEEE;
+            --gray-300: #E0E0E0;
+            --error: #E53935;
+            --warning: #FFA726;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--background);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* ============ NAVBAR ============ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo img {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+        }
+
+        .nav-logo-text {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .nav-phone i {
+            font-size: 18px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background: linear-gradient(135deg, var(--accent) 0%, #2E7D32 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            padding: 140px 20px 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #3D6A8F 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.5;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(76, 175, 80, 0.2);
+            color: var(--accent-light);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: var(--accent-light);
+        }
+
+        .hero-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-phone {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+            display: block;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-decoration {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(76,175,80,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        /* ============ FEATURES SECTION ============ */
+        .features {
+            padding: 80px 20px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: rgba(30, 58, 95, 0.1);
+            color: var(--primary);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--background);
+            padding: 32px 24px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: var(--white);
+            border-color: var(--gray-200);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+            color: var(--white);
+        }
+
+        .feature-card:nth-child(2) .feature-icon {
+            background: linear-gradient(135deg, var(--accent) 0%, #2E7D32 100%);
+        }
+
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, #FF6B6B 0%, #EE5A5A 100%);
+        }
+
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, #7C3AED 0%, #5B21B6 100%);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* ============ PRODUCTS SECTION ============ */
+        .products {
+            padding: 80px 20px;
+            background: var(--background);
+        }
+
+        .products-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: var(--white);
+            border: 2px solid var(--gray-200);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            position: relative;
+            height: 200px;
+            background: var(--gray-100);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--accent);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-brand {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .product-price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        /* ============ BRANDS SECTION ============ */
+        .brands {
+            padding: 60px 20px;
+            background: var(--white);
+        }
+
+        .brands-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .brand-item {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--gray-300);
+            transition: color 0.3s ease;
+        }
+
+        .brand-item:hover {
+            color: var(--primary);
+        }
+
+        /* ============ APP SECTION ============ */
+        .app-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .app-content {
+            color: var(--white);
+        }
+
+        .app-title {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .app-description {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .app-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        .app-feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .app-feature i {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .app-feature span {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .store-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            color: var(--text-primary);
+            padding: 14px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .store-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .store-btn i {
+            font-size: 28px;
+        }
+
+        .store-btn-text {
+            text-align: left;
+        }
+
+        .store-btn-text small {
+            font-size: 11px;
+            color: var(--text-secondary);
+            display: block;
+        }
+
+        .store-btn-text strong {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .app-image {
+            text-align: center;
+        }
+
+        .app-phone {
+            max-width: 280px;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.3));
+        }
+
+        /* ============ CONTACT SECTION ============ */
+        .contact {
+            padding: 80px 20px;
+            background: var(--background);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .contact-item-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item-text h4 {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .contact-item-text p {
+            font-size: 15px;
+            color: var(--text-secondary);
+        }
+
+        .contact-item-text a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-200);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+
+        .footer-logo span {
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.7;
+        }
+
+        .footer-column h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* ============ MOBILE MENU ============ */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--white);
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu ul {
+            list-style: none;
+        }
+
+        .mobile-menu ul li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .mobile-menu ul li a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 16px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 1;
+            }
+
+            .hero-image {
+                order: 0;
+                margin-bottom: 40px;
+            }
+
+            .hero-description {
+                margin: 0 auto 32px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .app-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .app-image {
+                order: -1;
+                margin-bottom: 40px;
+            }
+
+            .app-features {
+                justify-content: center;
+            }
+
+            .app-buttons {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 120px 20px 60px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .app-title {
+                font-size: 28px;
+            }
+
+            .app-features {
+                grid-template-columns: 1fr;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* ============ ANIMATIONS ============ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <img src="images/logo.png" alt="NanoCam Logo">
+                <span class="nav-logo-text">NanoCam</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#features">Afzalliklar</a></li>
+                <li><a href="#products">Mahsulotlar</a></li>
+                <li><a href="#app">Ilova</a></li>
+                <li><a href="#contact">Aloqa</a></li>
+            </ul>
+            
+            <div class="nav-cta">
+                <a href="tel:+998935195099" class="nav-phone">
+                    <i class="fas fa-phone"></i>
+                    +998 93 519 50 99
+                </a>
+                <a href="#app" class="btn btn-primary">Ilovani yuklab olish</a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul>
+            <li><a href="#features">Afzalliklar</a></li>
+            <li><a href="#products">Mahsulotlar</a></li>
+            <li><a href="#app">Ilova</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+            <li><a href="tel:+998935195099"><i class="fas fa-phone"></i> +998 93 519 50 99</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    Xavfsizlik yechimlari
+                </div>
+                <h1 class="hero-title">
+                    Sizning <span>xavfsizligingiz</span> bizning ustuvorligimiz
+                </h1>
+                <p class="hero-description">
+                    Professional IP kameralar, NVR/DVR registratorlar va tarmoq qurilmalari. Eng sifatli brendlar - Dahua, Hikvision, MikroTik.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#app" class="btn btn-accent">
+                        <i class="fas fa-download"></i>
+                        Ilovani yuklab olish
+                    </a>
+                    <a href="#products" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-shopping-bag"></i>
+                        Mahsulotlarni ko'rish
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Mahsulotlar</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Qo'llab-quvvatlash</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">2 yil</div>
+                        <div class="stat-label">Kafolat</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-decoration"></div>
+                <img src="images/app-mockup.png" alt="NanoCam App" class="hero-phone">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Nega aynan biz?</div>
+                <h2 class="section-title">Bizning afzalliklarimiz</h2>
+                <p class="section-description">
+                    NanoCam bilan xavfsizlik tizimingiz ishonchli va professional qo'llarda
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 class="feature-title">Bepul yetkazish</h3>
+                    <p class="feature-text">Toshkent bo'ylab bepul yetkazib berish xizmati</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 class="feature-title">2 yil kafolat</h3>
+                    <p class="feature-text">Barcha mahsulotlarga rasmiy kafolat beriladi</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="feature-title">O'rnatish xizmati</h3>
+                    <p class="feature-text">Professional mutaxassislar tomonidan o'rnatish</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="feature-title">24/7 Yordam</h3>
+                    <p class="feature-text">Doimo aloqadamiz va yordam berishga tayyormiz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Katalog</div>
+                <h2 class="section-title">Mashhur mahsulotlar</h2>
+                <p class="section-description">
+                    Eng so'nggi va eng ishonchli xavfsizlik qurilmalari
+                </p>
+            </div>
+            
+            <div class="products-tabs">
+                <button class="tab-btn active">Hammasi</button>
+                <button class="tab-btn">IP Kameralar</button>
+                <button class="tab-btn">DVR/NVR</button>
+                <button class="tab-btn">Kommutatorlar</button>
+                <button class="tab-btn">Aksessuarlar</button>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dsmaptpfg/image/upload/v1764911599/1431_voawh5.jpg" alt="Dahua DH-IPC-HDBW1431EP-S4">
+                        <span class="product-badge">Yangi</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Dahua</div>
+                        <h3 class="product-name">DH-IPC-HDBW1431EP-S4 4MP Dome</h3>
+                        <div class="product-price">463 111 <span>so'm</span></div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dsmaptpfg/image/upload/v1764911801/1atbactp-650x650-1_d88rcz.jpg" alt="Hikvision DS-2CD1023G0E-I">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Hikvision</div>
+                        <h3 class="product-name">DS-2CD1023G0E-I 2MP Bullet</h3>
+                        <div class="product-price">311 000 <span>so'm</span></div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dsmaptpfg/image/upload/v1764912350/1108_cxjbdf.jpg" alt="Dahua NVR1108HS">
+                        <span class="product-badge">Mashhur</span>
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">Dahua</div>
+                        <h3 class="product-name">DHI-NVR1108HS-S3/H 8ch 4K NVR</h3>
+                        <div class="product-price">497 844 <span>so'm</span></div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://res.cloudinary.com/dsmaptpfg/image/upload/v1764912632/crs309_fcuj6k.jpg" alt="MikroTik CRS309">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-brand">MikroTik</div>
+                        <h3 class="product-name">CRS309-1G-8S+IN 10G Switch</h3>
+                        <div class="product-price">5 800 000 <span>so'm</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="#app" class="btn btn-primary">
+                    <i class="fas fa-mobile-alt"></i>
+                    Barcha mahsulotlar ilovada
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="container">
+            <div class="brands-grid">
+                <div class="brand-item">DAHUA</div>
+                <div class="brand-item">HIKVISION</div>
+                <div class="brand-item">MikroTik</div>
+                <div class="brand-item">TP-Link</div>
+                <div class="brand-item">Grandstream</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Section -->
+    <section class="app-section" id="app">
+        <div class="app-container">
+            <div class="app-content">
+                <h2 class="app-title">NanoCam ilovasini yuklab oling</h2>
+                <p class="app-description">
+                    Barcha mahsulotlarimizni ko'ring, buyurtma bering va yetkazib berishni kuzating - barchasi bitta ilovada!
+                </p>
+                
+                <div class="app-features">
+                    <div class="app-feature">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Oson buyurtma berish</span>
+                    </div>
+                    <div class="app-feature">
+                        <i class="fas fa-truck"></i>
+                        <span>Yetkazishni kuzatish</span>
+                    </div>
+                    <div class="app-feature">
+                        <i class="fas fa-percent"></i>
+                        <span>Maxsus chegirmalar</span>
+                    </div>
+                    <div class="app-feature">
+                        <i class="fas fa-bell"></i>
+                        <span>Yangiliklar haqida xabar</span>
+                    </div>
+                </div>
+                
+                <div class="app-buttons">
+                    <a href="#" class="store-btn">
+                        <i class="fab fa-apple"></i>
+                        <div class="store-btn-text">
+                            <small>Yuklab oling</small>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="store-btn">
+                        <i class="fab fa-google-play"></i>
+                        <div class="store-btn-text">
+                            <small>Yuklab oling</small>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="app-image">
+                <img src="images/app-mockup.png" alt="NanoCam App" class="app-phone">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-badge">Aloqa</div>
+                <h2 class="section-title">Biz bilan bog'laning</h2>
+                <p class="section-description">
+                    Savollaringiz bormi? Biz doimo yordam berishga tayyormiz!
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Bog'lanish uchun</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Telefon</h4>
+                            <p><a href="tel:+998935195099">+998 93 519 50 99</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@nanocam.uz">info@nanocam.uz</a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Manzil</h4>
+                            <p>Toshkent shahri</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-item-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-item-text">
+                            <h4>Ish vaqti</h4>
+                            <p>Dushanba - Shanba: 09:00 - 18:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://t.me/nanocam_uz" class="social-link" target="_blank">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="https://instagram.com/nanocam_uz" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://facebook.com/nanocam.uz" class="social-link" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Xabar yuborish</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Ismingiz</label>
+                            <input type="text" id="name" name="name" placeholder="Ismingizni kiriting" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon raqam</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+998 XX XXX XX XX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Xabar</label>
+                            <textarea id="message" name="message" placeholder="Xabaringizni yozing..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Yuborish
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="NanoCam">
+                    <span>NanoCam</span>
+                </div>
+                <p>
+                    Kameralar va tarmoq qurilmalari do'koni. Eng sifatli mahsulotlar eng qulay narxlarda!
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Mahsulotlar</h4>
+                <ul>
+                    <li><a href="#">IP Kameralar</a></li>
+                    <li><a href="#">DVR/NVR</a></li>
+                    <li><a href="#">Kommutatorlar</a></li>
+                    <li><a href="#">Aksessuarlar</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Kompaniya</h4>
+                <ul>
+                    <li><a href="#">Biz haqimizda</a></li>
+                    <li><a href="#">Yetkazib berish</a></li>
+                    <li><a href="#">Kafolat</a></li>
+                    <li><a href="#">Bog'lanish</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Yordam</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Maxfiylik siyosati</a></li>
+                    <li><a href="#">Foydalanish shartlari</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 NanoCam. Barcha huquqlar himoyalangan.</p>
+            <p>Toshkent, O'zbekiston</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+            
+            // Telegram bot orqali yuborish yoki alert ko'rsatish
+            alert(`Rahmat, ${name}! Xabaringiz qabul qilindi. Tez orada siz bilan bog'lanamiz.`);
+            contactForm.reset();
+        });
+
+        // Product tabs (optional enhancement)
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                tabButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
